@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/Classes/category';
 import { CategoryService } from 'src/Services/category.service';
 
@@ -9,11 +10,27 @@ import { CategoryService } from 'src/Services/category.service';
 })
 export class IndexComponent implements OnInit {
 
-  categoryList:Category[];
+  categoryList:Category[]=[];
   errorMsg: any;
-  constructor(private categoryService:CategoryService) { }
+  constructor(private categoryService:CategoryService, private route: ActivatedRoute ,private router: Router) { }
 
   ngOnInit(): void {
+    this.categoryService.returnAllCategory().subscribe
+    ( categoryData=>
+      {
+        this.categoryList=categoryData;
+        for(var i=0;i<this.categoryList.length;i++){
+          console.log(this.categoryList[i].name);
+        }
+        //alert(this.categoryList);
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      }
+    );
+  }
+  getCategory(){
     this.categoryService.returnAllCategory().subscribe
     ( categoryData=>
       {
@@ -25,5 +42,15 @@ export class IndexComponent implements OnInit {
       }
     );
   }
+
+  deleteCategory(id:any){
+  this.categoryService.deleteCategory(id)
+  .subscribe(() => {
+    this.getCategory();
+  }, (err) => {
+    console.log(err);
+  });
+}
+
 
 }

@@ -9,7 +9,7 @@ import { Category } from 'src/app/Classes/category';
 export class CategoryService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:49235/api/Category';
+  url='http://localhost:2415/api/Category';
   addCategory(category:Category): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(category);
@@ -19,17 +19,29 @@ export class CategoryService {
     
     returnAllCategory():Observable<Category[]>
     {
+  
         return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
         {
+        
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
-    updateCategory(category:Category): Observable<any> {
-      const headers = { 'content-type': 'application/json'}  
+    updateCategory(id:any,category:Category): Observable<any> {
+    
    
-      const body=JSON.stringify(category);
-   
-      return this.http.put<Category>(this.url, body,{headers:headers}) 
+      return this.http.put<Category>(this.url+'/'+id,category).pipe(
+        catchError((err)=>{
+          return throwError(err.message ||"Internal Server error contact site adminstarator");
+        
+        })
+      ); 
   }
+  deleteCategory(id: any):Observable<any>{
+    return this.http.delete<Category>(this.url+'/'+id)
+    .pipe(
+      catchError( (err) => {
+        return throwError(err.message ||"Error deleting travellers data.");
+     }));
+}
 }
 
