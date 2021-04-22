@@ -11,10 +11,7 @@ import { CategoryService } from 'src/Services/category.service';
 })
 export class UpdateCategoryComponent implements OnInit {
 
-  categoryList:Category[];
   errorMsg: any;
-  dataSaved: boolean;
-  massage: string;
   constructor(private fb:FormBuilder,private categoryService:CategoryService, private route: ActivatedRoute ,private router: Router) { }
   updateCategoryForm=this.fb.group({
     id:['',[]],
@@ -25,10 +22,17 @@ export class UpdateCategoryComponent implements OnInit {
   {
     return this.updateCategoryForm.get('name')
   }
+  get id()
+  {
+    return this.updateCategoryForm.get('id')
+  }
   ngOnInit(): void {
   }
   category:Category;
   UpdateCategory() {
+    //alert(this.category.ID);
+    this.category.ID=this.id?.value;
+    this.category.Name=this.name?.value;
     this.categoryService.updateCategory(this.route.snapshot.params.id,this.category).subscribe(
       (res)=>
       {

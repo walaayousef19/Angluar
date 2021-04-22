@@ -24,15 +24,15 @@
 
 </tr>
 <tr *ngFor="let cat of categoryList">
-         <td> {{cat.Id}}</td>  
-         <td> {{cat.name}}</td>    
+         <td> {{cat.ID}}</td>  
+         <td> {{cat.Name}}</td>    
   
                <td>
                 <a routerLink="/Category/edit" class="nav-link" >
             <button class="btn btn-success" >Edit</button></a>
             </td>
             <td>
-        <button class="btn btn-danger" (click)="deleteCategory(cat.Id)" >Delete</button>
+        <button class="btn btn-danger" (click)="deleteCategory(cat.ID)" >Delete</button>
         </td>
 </tr>
 </table>

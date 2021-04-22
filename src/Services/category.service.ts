@@ -19,16 +19,13 @@ export class CategoryService {
     
     returnAllCategory():Observable<Category[]>
     {
-  
-        return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
+       return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
         {
         
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
-    updateCategory(id:any,category:Category): Observable<any> {
-    
-   
+    updateCategory(id:any,category:Category): Observable<any> {   
       return this.http.put<Category>(this.url+'/'+id,category).pipe(
         catchError((err)=>{
           return throwError(err.message ||"Internal Server error contact site adminstarator");

@@ -22,7 +22,6 @@ path:'addproduct',component:AddProductComponent
 {
   path:'Category/edit',component:UpdateCategoryComponent
 }
-
 ];
 
 @NgModule({
