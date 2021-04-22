@@ -5,14 +5,13 @@ import { IndexComponent } from './categoryModule/index/index.component';
 import { UpdateCategoryComponent } from './categoryModule/update-category/update-category.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddProductComponent } from './productModule/add-product/add-product.component';
+import { IndexProductComponent } from './productModule/index-product/index-product.component';
 
 const routes: Routes = [
   {path: '',
   component:DashboardComponent,
 },
-{
-path:'addproduct',component:AddProductComponent
-},
+
 {
   path:'Category/add',component:AddCategoryComponent
 },
@@ -21,7 +20,13 @@ path:'addproduct',component:AddProductComponent
 },
 {
   path:'Category/edit',component:UpdateCategoryComponent
-}
+},
+{
+  path:'Product/add',component:AddProductComponent
+},
+{
+  path:'Product/Index',component:IndexProductComponent
+},
 
 ];
 

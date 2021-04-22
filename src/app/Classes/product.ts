@@ -1,3 +1,4 @@
+import { Category } from './category';
 export class Product {
     constructor(
         public name:string,
@@ -7,6 +8,7 @@ export class Product {
         public color:string,
         public description:string,
         public image:string,
-       
+        public Categories:Category
+
     ){}
 }
