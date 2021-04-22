@@ -1,1 +1,24 @@
-<p>add-category works!</p>
+<div style="margin: auto;width:50%;margin-top: 7em;height: 200px;">
+    <legend>Add Category</legend>
+
+    <div class="form-horizontal">
+        <hr />
+<form [formGroup]="addCategoryForm" style="height: 200px;">
+    <div class="form-group">
+       <label>Category Name</label>
+    
+       <input type="text" formControlName="name" class="form-control" [class.is-invalid]="name.invalid &&name.touched">
+       <div *ngIf="name.invalid && name.touched">
+        <small class="text-danger" *ngIf="name.errors.required">Category Name is required</small>
+           </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+    <input type="submit" value="Create" (click)="addCategory()" class="btn btn-primary" />
+</div>
+</div>
+</form>
+
+</div>
+</div>

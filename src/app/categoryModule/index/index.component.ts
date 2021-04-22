@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/Classes/category';
+import { CategoryService } from 'src/Services/category.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  categoryList:Category[];
+  errorMsg: any;
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
+    this.categoryService.returnAllCategory().subscribe
+    ( categoryData=>
+      {
+        this.categoryList=categoryData;
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      }
+    );
   }
 
 }

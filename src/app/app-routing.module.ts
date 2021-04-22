@@ -13,10 +13,10 @@ const routes: Routes = [
 path:'addproduct',component:AddProductComponent
 },
 {
-  path:'addCategory',component:AddCategoryComponent
+  path:'Category/add',component:AddCategoryComponent
 },
 {
-  path:'AllCategory',component:IndexComponent
+  path:'Category/Index',component:IndexComponent
 }
 ];
 
