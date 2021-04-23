@@ -28,7 +28,9 @@ export class CategoryService {
     updateCategory(id:any,category:Category): Observable<any> {   
       return this.http.put<Category>(this.url+'/'+id,category).pipe(
         catchError((err)=>{
+          console.log("erro ocuured")
           return throwError(err.message ||"Internal Server error contact site adminstarator");
+          
         
         })
       ); 
@@ -39,6 +41,14 @@ export class CategoryService {
       catchError( (err) => {
         return throwError(err.message ||"Error deleting travellers data.");
      }));
+}
+getCategoryById(id:any):Observable<Category>
+{
+  return this.http.get<Category>(this.url+'/'+id).pipe(catchError((err)=>
+  {
+  
+    return throwError(err.message ||"Internal Server error contact site adminstarator");
+  }));
 }
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
 
@@ -10,9 +11,24 @@ import { Category } from '../../Classes/category';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private fb:FormBuilder,private categoryService:ProductService) { }
-
+  constructor(private fb:FormBuilder,private categoryService:ProductService,private catServicee:CategoryService) { }
+  categoryList:Category[];
   ngOnInit(): void {
+    this.catServicee.returnAllCategory().subscribe
+    ( categoryData=>
+      {
+        this.categoryList=categoryData;
+        for(var i=0;i<this.categoryList.length;i++){
+          console.log(this.categoryList[i]);
+          alert( this.categoryList)
+        }   
+      },
+      errorResponse=>
+      {
+    //   this.error=errorResponse;
+    console.log('failed');
+      }
+    );
   }
   addProductForm=this.fb.group({
     id:['',[]],

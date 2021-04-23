@@ -20,18 +20,9 @@ export class IndexComponent implements OnInit {
     ( categoryData=>
       {
         this.categoryList=categoryData;
-<<<<<<< HEAD
-        alert(this.categoryList);
-       JSON.stringify(this.categoryList);
-        for(var i=0;i<this.categoryList.length;i++)
-        {
-               console.log(this.categoryList[i]);
-        }
-=======
         for(var i=0;i<this.categoryList.length;i++){
           console.log(this.categoryList[i]);
         }   
->>>>>>> aa9308c7c6b478f2c69591eb21ad28981d796f74
       },
       errorResponse=>
       {
@@ -55,11 +46,9 @@ export class IndexComponent implements OnInit {
   deleteCategory(id:any){
   this.categoryService.deleteCategory(id)
   .subscribe(() => {
-    this.getCategory();
+    console.log('Deleted');
   }, (err) => {
     console.log(err);
   });
 }
-
-
 }

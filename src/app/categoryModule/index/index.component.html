@@ -23,24 +23,13 @@
 <th>Delete Category</th>
 
 </tr>
-<<<<<<< HEAD
-<tr>
-    <div *ngFor="let item of categoryList">
-       <td> {{item.Name}}</td>  
-         <td>
-        <button class="btn btn-danger" >Delete</button>
-        </td>
-        <td>
-            <button class="btn btn-success" >Edit</button>
-=======
 <tr *ngFor="let cat of categoryList">
          <td> {{cat.ID}}</td>  
          <td> {{cat.Name}}</td>    
   
                <td>
-                <a routerLink="/Category/edit" class="nav-link" >
-            <button class="btn btn-success" >Edit</button></a>
->>>>>>> aa9308c7c6b478f2c69591eb21ad28981d796f74
+                <a  class="nav-link" [routerLink]="['/Category/edit/', cat.ID]" >
+            <button class="btn btn-success">Edit</button></a>
             </td>
             <td>
         <button class="btn btn-danger" (click)="deleteCategory(cat.ID)" >Delete</button>
