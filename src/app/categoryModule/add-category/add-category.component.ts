@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/Classes/category';
 import { CategoryService } from 'src/Services/category.service';
 
@@ -10,7 +11,7 @@ import { CategoryService } from 'src/Services/category.service';
 })
 export class AddCategoryComponent implements OnInit {
  
-  constructor(private fb:FormBuilder,private categoryService:CategoryService) { }
+  constructor(private fb:FormBuilder,private categoryService:CategoryService,private router :Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,7 @@ export class AddCategoryComponent implements OnInit {
             (data =>
                {alert("Succesfully Added Category details")},Error => {alert("failed while adding Category details")}
            );
+           this.router.navigate(['/Category/Index']);
   }
   get name()
   {

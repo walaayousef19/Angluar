@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
 import { Product } from '../../Classes/product';
@@ -13,9 +14,29 @@ export class AddProductComponent implements OnInit {
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
 
+<<<<<<< HEAD
   constructor(private fb:FormBuilder,private productServices:ProductService) { }
 
+=======
+  constructor(private fb:FormBuilder,private categoryService:ProductService,private catServicee:CategoryService) { }
+  categoryList:Category[];
+>>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
   ngOnInit(): void {
+    this.catServicee.returnAllCategory().subscribe
+    ( categoryData=>
+      {
+        this.categoryList=categoryData;
+        for(var i=0;i<this.categoryList.length;i++){
+          console.log(this.categoryList[i]);
+          alert( this.categoryList)
+        }   
+      },
+      errorResponse=>
+      {
+    //   this.error=errorResponse;
+    console.log('failed');
+      }
+    );
   }
   addProductForm=this.fb.group({
 

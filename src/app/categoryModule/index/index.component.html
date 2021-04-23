@@ -28,8 +28,8 @@
          <td> {{cat.Name}}</td>    
   
                <td>
-                <a routerLink="/Category/edit" class="nav-link" >
-            <button class="btn btn-success" >Edit</button></a>
+                <a  class="nav-link" [routerLink]="['/Category/edit/', cat.ID]" >
+            <button class="btn btn-success">Edit</button></a>
             </td>
             <td>
         <button class="btn btn-danger" (click)="deleteCategory(cat.ID)" >Delete</button>

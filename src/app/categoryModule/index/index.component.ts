@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/Classes/category';
@@ -45,11 +46,9 @@ export class IndexComponent implements OnInit {
   deleteCategory(id:any){
   this.categoryService.deleteCategory(id)
   .subscribe(() => {
-    this.getCategory();
+    console.log('Deleted');
   }, (err) => {
     console.log(err);
   });
 }
-
-
 }
