@@ -1,13 +1,14 @@
 import { Category } from './category';
 export class Product {
     constructor(
-        public name:string,
-        public price:number,
-        public quantity:number,
-        public discount:number,
-        public color:string,
-        public description:string,
-        public image:string,
+        public ID:number,
+        public Name:string,
+        public Price:number,
+        public Quantity:number,
+        public Discount:number,
+        public Color:string,
+        public Description:string,
+        public Image:string,
         public Categories:Category
 
     ){}
