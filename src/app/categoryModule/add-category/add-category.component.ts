@@ -9,21 +9,19 @@ import { CategoryService } from 'src/Services/category.service';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
-
-
-
-  
+ 
   constructor(private fb:FormBuilder,private categoryService:CategoryService) { }
 
   ngOnInit(): void {
   }
   addCategoryForm=this.fb.group({
+    id:['',[]],
     name:['',[Validators.required]]
 
   })
   addCategory()
   {
-           var cat=new Category(this.name?.value)
+           var cat=new Category(this.id?.value,this.name?.value)
            this.categoryService.addCategory(cat).subscribe
             (data =>
                {alert("Succesfully Added Category details")},Error => {alert("failed while adding Category details")}
@@ -32,6 +30,10 @@ export class AddCategoryComponent implements OnInit {
   get name()
   {
     return this.addCategoryForm.get('name')
+  }
+  get id()
+  {
+    return this.addCategoryForm.get('id')
   }
 
 }
