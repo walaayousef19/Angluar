@@ -20,9 +20,8 @@ export class IndexComponent implements OnInit {
       {
         this.categoryList=categoryData;
         for(var i=0;i<this.categoryList.length;i++){
-          console.log(this.categoryList[i].name);
-        }
-        //alert(this.categoryList);
+          console.log(this.categoryList[i]);
+        }   
       },
       errorResponse=>
       {
