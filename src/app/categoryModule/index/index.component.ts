@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/Classes/category';
 import { CategoryService } from 'src/Services/category.service';
@@ -18,6 +19,12 @@ export class IndexComponent implements OnInit {
     ( categoryData=>
       {
         this.categoryList=categoryData;
+        alert(this.categoryList);
+       JSON.stringify(this.categoryList);
+        for(var i=0;i<this.categoryList.length;i++)
+        {
+               console.log(this.categoryList[i]);
+        }
       },
       errorResponse=>
       {

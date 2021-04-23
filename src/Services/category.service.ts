@@ -9,7 +9,7 @@ import { Category } from 'src/app/Classes/category';
 export class CategoryService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:49235/api/Category';
+  url='http://localhost:2415/api/Category';
   addCategory(category:Category): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(category);
