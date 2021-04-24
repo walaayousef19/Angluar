@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { IndexProductComponent } from './productModule/index-product/index-produ
     AddProductComponent,
     UpdateProductComponent,
     RegisterComponent,
-    IndexProductComponent
+    IndexProductComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -14,13 +14,9 @@ export class AddProductComponent implements OnInit {
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
 
-<<<<<<< HEAD
-  constructor(private fb:FormBuilder,private productServices:ProductService) { }
-
-=======
-  constructor(private fb:FormBuilder,private categoryService:ProductService,private catServicee:CategoryService) { }
+  constructor(private fb:FormBuilder,private productService:ProductService,
+    private catServicee:CategoryService) { }
   categoryList:Category[];
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
   ngOnInit(): void {
     this.catServicee.returnAllCategory().subscribe
     ( categoryData=>
@@ -29,7 +25,7 @@ export class AddProductComponent implements OnInit {
         for(var i=0;i<this.categoryList.length;i++){
           console.log(this.categoryList[i]);
           alert( this.categoryList)
-        }   
+        }
       },
       errorResponse=>
       {
@@ -94,9 +90,10 @@ export class AddProductComponent implements OnInit {
            var product=new Product (this.id?.value,this.name?.value,this.Image?.value,
             this.price?.value,this.Description?.value,this.Quantity?.value,
             this.color?.value,this.Categories?.value,this.discount?.value);
-           this.productServices.addProduct(product).subscribe
+           this.productService.addProduct(product).subscribe
             (data =>
-               {alert("Succesfully Added Category details")},Error => {alert("failed while adding Category details")}
+               {alert("Succesfully Added Product details")},
+               Error => {alert("failed while adding Product details")}
            );
   }
 

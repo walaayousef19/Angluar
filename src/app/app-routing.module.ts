@@ -7,6 +7,7 @@ import { Category } from './Classes/category';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddProductComponent } from './productModule/add-product/add-product.component';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {path: '',
@@ -20,11 +21,7 @@ const routes: Routes = [
   path:'Category/Index',component:IndexComponent
 },
 {
-<<<<<<< HEAD
-  path:'Category/edit',component:UpdateCategoryComponent
-=======
   path:'Category/edit/:id',component:UpdateCategoryComponent
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
 },
 {
   path:'Product/add',component:AddProductComponent
@@ -32,11 +29,10 @@ const routes: Routes = [
 {
   path:'Product/Index',component:IndexProductComponent
 },
+{
+  path:"header",component:HeaderComponent
+}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
 ];
 
 @NgModule({

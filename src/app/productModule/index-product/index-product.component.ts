@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from 'src/app/Classes/product';
+import { ProductService } from '../../../Services/product.service';
 
 @Component({
   selector: 'app-index-product',
@@ -7,9 +10,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexProductComponent implements OnInit {
 
-  constructor() { }
+  productList:Product[]=[];
+  errorMsg: any;
+  constructor(private productService:ProductService, private route: ActivatedRoute ,
+    private router: Router) { }
 
   ngOnInit(): void {
+    this.productService.returnAllProduct().subscribe
+    ( productData=>
+      {
+        this.productList=productData;
+        for(var i=0;i<this.productList.length;i++){
+          console.log(this.productList[i]);
+        }
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      }
+    );
+  }
+  getProduct(){
+    this.productService.returnAllProduct().subscribe
+    ( productData=>
+      {
+        this.productList=productData;
+      },
+      errorResponse=>
+      {
+       this.errorMsg=errorResponse;
+      }
+    );
   }
 
+  deleteProduct(id:any){
+    this.productService.deleteProduct(id)
+    .subscribe(() => {
+      console.log('Deleted');
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+
 }
+
