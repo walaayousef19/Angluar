@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
 import { UpdateCategoryComponent } from './categoryModule/update-category/update-category.component';
 import { IndexComponent } from './categoryModule/index/index.component';
 import { AddProductComponent } from './productModule/add-product/add-product.component';
@@ -12,7 +11,12 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+<<<<<<< HEAD
 import { HeaderComponent } from './header/header.component';
+=======
+import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
+
+>>>>>>> 9064a5d80d8dafc13d0d4b7413c677d68bb6d4c4
 
 @NgModule({
   declarations: [

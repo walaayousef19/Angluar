@@ -14,8 +14,12 @@ export class AddProductComponent implements OnInit {
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
 
+<<<<<<< HEAD
   constructor(private fb:FormBuilder,private productService:ProductService,
     private catServicee:CategoryService) { }
+=======
+  constructor(private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
+>>>>>>> 9064a5d80d8dafc13d0d4b7413c677d68bb6d4c4
   categoryList:Category[];
   ngOnInit(): void {
     this.catServicee.returnAllCategory().subscribe
@@ -92,8 +96,12 @@ export class AddProductComponent implements OnInit {
             this.color?.value,this.Categories?.value,this.discount?.value);
            this.productService.addProduct(product).subscribe
             (data =>
+<<<<<<< HEAD
                {alert("Succesfully Added Product details")},
                Error => {alert("failed while adding Product details")}
+=======
+               {alert("Succesfully Added Product details")},Error => {alert("failed while adding Product details")}
+>>>>>>> 9064a5d80d8dafc13d0d4b7413c677d68bb6d4c4
            );
   }
 
