@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/Classes/category';
 import { CategoryService } from 'src/Services/category.service';
 
@@ -11,6 +12,7 @@ import { CategoryService } from 'src/Services/category.service';
 export class AddCategoryComponent implements OnInit {
 
  
+<<<<<<< HEAD
   constructor(private fb: FormBuilder,private categoryService:CategoryService) { }
   categoryList:Category []=[];
   errorMsg: any;
@@ -18,6 +20,9 @@ export class AddCategoryComponent implements OnInit {
   massage: string;
   CategoryId: number=0;
   addCategoryForm:any;
+=======
+  constructor(private fb:FormBuilder,private categoryService:CategoryService,private router :Router) { }
+>>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
 
   ngOnInit(): void {
     this.addCategoryForm=this.fb.group({
@@ -26,12 +31,36 @@ export class AddCategoryComponent implements OnInit {
    this.getCategory();
  
   }
+<<<<<<< HEAD
   getCategory(){
     this.categoryService.returnAllCategory().subscribe((Data)=>{
       this.categoryList=Data;
     },(err)=>{
     this.errorMsg=err;
     })
+=======
+  addCategoryForm=this.fb.group({
+    id:['',[]],
+    name:['',[Validators.required]]
+
+  })
+  addCategory()
+  {
+           var cat=new Category(this.id?.value,this.name?.value)
+           this.categoryService.addCategory(cat).subscribe
+            (data =>
+               {alert("Succesfully Added Category details")},Error => {alert("failed while adding Category details")}
+           );
+           this.router.navigate(['/Category/Index']);
+  }
+  get name()
+  {
+    return this.addCategoryForm.get('name')
+  }
+  get id()
+  {
+    return this.addCategoryForm.get('id')
+>>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
   }
 Reset() {  
   this.addCategoryForm.reset();  

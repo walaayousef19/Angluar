@@ -20,7 +20,7 @@ export class ProductService {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(product);
  
-    return this.http.post<Product>('http://localhost:49235/api/Prouct', body,{'headers':headers}) }
+    return this.http.post<Product>('http://localhost:2415/api/Prouct', body,{'headers':headers}) }
     returnAllProducts():Observable<Product[]>
     {
       return this.http.get<Product[]>('').pipe(catchError((err)=>

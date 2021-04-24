@@ -26,8 +26,13 @@
                                         <td> {{cat.Name}}</td>    
                                 
                <td>
+<<<<<<< HEAD
                 <a routerLink="/Category/edit" class="nav-link" >
             <button class="btn btn-primary mr-1" >Edit</button></a>
+=======
+                <a  class="nav-link" [routerLink]="['/Category/edit/', cat.ID]" >
+            <button class="btn btn-success">Edit</button></a>
+>>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
             </td>
             <td>
         <button class="btn btn-danger mr-1" (click)="deleteCategory(cat.ID)" >Delete</button>

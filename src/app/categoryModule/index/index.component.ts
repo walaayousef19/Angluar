@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,10 +43,11 @@ export class IndexComponent implements OnInit {
     if (confirm("Are You Sure To Delete this Informations")) {  
   this.categoryService.deleteCategory(id)
   .subscribe(() => {
-    this.getCategory();
+    console.log('Deleted');
   }, (err) => {
     console.log(err);
   });
+<<<<<<< HEAD
 }  }
 
 Reset() {  
@@ -53,4 +55,7 @@ Reset() {
  } 
 
 
+=======
+}
+>>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
 }
