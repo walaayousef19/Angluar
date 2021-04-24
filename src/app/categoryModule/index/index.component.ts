@@ -47,7 +47,6 @@ export class IndexComponent implements OnInit {
   }, (err) => {
     console.log(err);
   });
-<<<<<<< HEAD
 }  }
 
 Reset() {  
@@ -55,7 +54,4 @@ Reset() {
  } 
 
 
-=======
-}
->>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
 }

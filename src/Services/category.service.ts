@@ -42,14 +42,6 @@ export class CategoryService {
         return throwError(err.message ||"Error deleting travellers data.");
      }));
 }
-<<<<<<< HEAD
-getCategoryById(CatId: number): Observable<Category> {    
-  return this.http.get<Category>(this.url + '/' + CatId).pipe(
-    catchError( (err) => {
-      return throwError(err.message ||"Error while getting data.");
-   }));   
-}  
-=======
 getCategoryById(id:any):Observable<Category>
 {
   return this.http.get<Category>(this.url+'/'+id).pipe(catchError((err)=>
@@ -58,6 +50,5 @@ getCategoryById(id:any):Observable<Category>
     return throwError(err.message ||"Internal Server error contact site adminstarator");
   }));
 }
->>>>>>> 9db31a7c1ed554d182c58f228987bf193ed633e8
 }
 

@@ -11,7 +11,6 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
-import { UpdateOrderComponent } from './OrderModule/update-order/update-order.component';
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
 
 
@@ -25,8 +24,7 @@ import { AddCategoryComponent } from './categoryModule/add-category/add-category
     AddProductComponent,
     UpdateProductComponent,
     RegisterComponent,
-    IndexProductComponent,
-    UpdateOrderComponent
+    IndexProductComponent
   ],
   imports: [
     BrowserModule,
