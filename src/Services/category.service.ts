@@ -25,7 +25,7 @@ export class CategoryService {
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
-    updateCategory(id:any,category:Category): Observable<any> {   
+    updateCategory(id:any,category:Category): Observable<Category> {   
       return this.http.put<Category>(this.url+'/'+id,category).pipe(
         catchError((err)=>{
           return throwError(err.message ||"Internal Server error contact site adminstarator");
@@ -33,12 +33,18 @@ export class CategoryService {
         })
       ); 
   }
-  deleteCategory(id: any):Observable<any>{
-    return this.http.delete<Category>(this.url+'/'+id)
+  deleteCategory(id: number):Observable<number>{
+    return this.http.delete<number>(this.url+'/'+id)
     .pipe(
       catchError( (err) => {
         return throwError(err.message ||"Error deleting travellers data.");
      }));
 }
+getCategoryById(CatId: number): Observable<Category> {    
+  return this.http.get<Category>(this.url + '/' + CatId).pipe(
+    catchError( (err) => {
+      return throwError(err.message ||"Error while getting data.");
+   }));   
+}  
 }
 

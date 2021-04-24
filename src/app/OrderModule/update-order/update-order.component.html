@@ -1,0 +1,53 @@
+<div class="card" style="margin: auto;width:50%;margin-top: 7em;height: 200px;" >  
+    <div class="card-header" style="text-align:center">  
+        <b>WELCOME TO ORDER CURD OPERATION</b>  
+    </div>  
+    <div class="card-body">  
+        <form [formGroup]="FromOrder" (ngSubmit)="AddOrder(FromOrder.value)">  
+            <div class="row">  
+                <div class="form-group col-sm-3">  
+                    <label for="company">Total Price</label>  
+                    <input type="text" class="form-control" formControlName="TotalPrice" placeholder="Enter Total Price" >  
+    
+                </div>  
+                    <div class="form-group col-sm-3">  
+                        <label for="company">Order Date</label>  
+                        <input type="date" class="form-control" formControlName="OrderDate"  >  
+                    
+                    </div>  
+                       
+                                <div class="form-group col-sm-3"><br>  
+                                    <button type="submit" class="btn btn-primary" >Add Order</button>  
+                                </div>  
+                            </div>  
+                         
+                        </form>  
+                    </div><br><br><br>
+                   <br> 
+                    <div class="card-footer">  
+                        <div class="col-lg-12 table-responsive">  
+                            <table class="table table-striped">  
+                                <thead>  
+                                    <tr>  
+                                        <th>Id</th>  
+                                        <th>TotalPrice</th>  
+                                        <th>OrderDate</th>   
+                                        <th></th>  
+                                    </tr>  
+                                </thead>  
+                                <tbody>  
+                                    <tr *ngFor="let order of allOrder|async">  
+                                        <td>{{order.ID}}</td>  
+                                        <td>{{order.TotalPrice}}</td>  
+                                        <td>{{order.OrderDate}}</td>  
+                                    
+                                        <td>  
+                                            <button type="button" class="btn btn-primary mr-1" (click)="EditOrder(order.ID)">Edit</button>  
+                                            <button type="button" class="btn btn-danger mr-1" (click)="DeleteOrder(order.ID)">Delete</button>  
+                                        </td>  
+                                    </tr>  
+                                </tbody>  
+                            </table>  
+                        </div>  
+                    </div>  
+                </div>  

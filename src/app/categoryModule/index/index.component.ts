@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Category } from 'src/app/Classes/category';
 import { CategoryService } from 'src/Services/category.service';
 
@@ -10,46 +12,45 @@ import { CategoryService } from 'src/Services/category.service';
 })
 export class IndexComponent implements OnInit {
 
-  categoryList:Category[]=[];
+
+  constructor(private fb: FormBuilder,private categoryService:CategoryService) { }
+  categoryList:Category [];
   errorMsg: any;
-  constructor(private categoryService:CategoryService, private route: ActivatedRoute ,private router: Router) { }
+  dataSaved=false;
+  massage: string;
+  CategoryId: number=0;
+  addCategoryForm:any;
 
   ngOnInit(): void {
-    this.categoryService.returnAllCategory().subscribe
-    ( categoryData=>
-      {
-        this.categoryList=categoryData;
-        for(var i=0;i<this.categoryList.length;i++){
-          console.log(this.categoryList[i]);
-        }   
-      },
-      errorResponse=>
-      {
-       this.errorMsg=errorResponse;
-      }
-    );
+    this.addCategoryForm=this.fb.group({
+      name:['',[Validators.required]]
+    })
+   this.getCategory();
+ 
   }
   getCategory(){
-    this.categoryService.returnAllCategory().subscribe
-    ( categoryData=>
-      {
-        this.categoryList=categoryData;
-      },
-      errorResponse=>
-      {
-       this.errorMsg=errorResponse;
-      }
-    );
+    this.categoryService.returnAllCategory().subscribe(
+    (Data)=>{
+      this.categoryList=Data;
+     },
+    (err)=>{
+    this.errorMsg=err;
+    })
   }
 
   deleteCategory(id:any){
+    if (confirm("Are You Sure To Delete this Informations")) {  
   this.categoryService.deleteCategory(id)
   .subscribe(() => {
     this.getCategory();
   }, (err) => {
     console.log(err);
   });
-}
+}  }
+
+Reset() {  
+  this.addCategoryForm.reset();  
+ } 
 
 
 }
