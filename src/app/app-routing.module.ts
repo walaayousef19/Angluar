@@ -26,11 +26,14 @@ const routes: Routes = [
 
   path:'Category/edit/:id',component:UpdateCategoryComponent
 
+<<<<<<< HEAD
 },
 {
 
   path:'Product/edit/:id',component:UpdateProductComponent
 
+=======
+>>>>>>> de796b276c415d92f0699c28d903a9d56d34fa44
 },
 {
   path:'Product/add',component:AddProductComponent

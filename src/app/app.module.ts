@@ -11,6 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+<<<<<<< HEAD
+=======
+import { HeaderComponent } from './header/header.component';
+>>>>>>> de796b276c415d92f0699c28d903a9d56d34fa44
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
