@@ -24,7 +24,7 @@ export class AddProductComponent implements OnInit {
         for(var i=0;i<this.categoryList.length;i++){
           console.log(this.categoryList[i]);
           alert( this.categoryList)
-        }   
+        }
       },
       errorResponse=>
       {

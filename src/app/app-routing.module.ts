@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AddProductComponent } from './productModule/add-product/add-product.component';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {path: '',
@@ -30,7 +31,11 @@ const routes: Routes = [
 },
 {
   path:'Product/Index',component:IndexProductComponent
+},
+{
+  path:"header",component:HeaderComponent
 }
+
 ];
 
 @NgModule({
