@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
+import { AddUserComponent } from './userModule/add-user/add-user.component';
+import { UserIndexComponent } from './userModule/user-index/user-index.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { AddCategoryComponent } from './categoryModule/add-category/add-category
     AddProductComponent,
     UpdateProductComponent,
     RegisterComponent,
-    IndexProductComponent
+    IndexProductComponent,
+    AddUserComponent,
+    UserIndexComponent
   ],
   imports: [
     BrowserModule,

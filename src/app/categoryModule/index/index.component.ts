@@ -43,10 +43,12 @@ export class IndexComponent implements OnInit {
     if (confirm("Are You Sure To Delete this Informations")) {  
   this.categoryService.deleteCategory(id)
   .subscribe(() => {
-    console.log('Deleted');
+    console.log('Deleted'); 
+     this.getCategory();
   }, (err) => {
     console.log(err);
   });
+
 }  }
 
 Reset() {  
