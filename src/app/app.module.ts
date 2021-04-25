@@ -11,12 +11,11 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
-<<<<<<< HEAD
-import { HeaderComponent } from './header/header.component';
-=======
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
->>>>>>> 9064a5d80d8dafc13d0d4b7413c677d68bb6d4c4
 
 @NgModule({
   declarations: [
@@ -29,7 +28,9 @@ import { AddCategoryComponent } from './categoryModule/add-category/add-category
     UpdateProductComponent,
     RegisterComponent,
     IndexProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
