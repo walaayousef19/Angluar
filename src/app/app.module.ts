@@ -13,6 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
 import { HeaderComponent } from './header/header.component';
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -27,7 +32,12 @@ import { AddCategoryComponent } from './categoryModule/add-category/add-category
     UpdateProductComponent,
     RegisterComponent,
     IndexProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    ProductListComponent,
+    CartComponent,
+    ProductDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
