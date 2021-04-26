@@ -12,6 +12,9 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IndexProductComponent } from './productModule/index-product/index-product.component';
+import { MainComponent } from './main/main.component';
+import { LpginComponent } from './lpgin/lpgin.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { IndexProductComponent } from './productModule/index-product/index-produ
     AddProductComponent,
     UpdateProductComponent,
     RegisterComponent,
-    IndexProductComponent
+    IndexProductComponent,
+    MainComponent,
+    LpginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

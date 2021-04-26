@@ -20,11 +20,7 @@ const routes: Routes = [
   path:'Category/Index',component:IndexComponent
 },
 {
-<<<<<<< HEAD
-  path:'Category/edit',component:UpdateCategoryComponent
-=======
   path:'Category/edit/:id',component:UpdateCategoryComponent
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
 },
 {
   path:'Product/add',component:AddProductComponent
@@ -33,10 +29,6 @@ const routes: Routes = [
   path:'Product/Index',component:IndexProductComponent
 },
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
 ];
 
 @NgModule({

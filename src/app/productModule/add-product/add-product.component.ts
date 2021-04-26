@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ImageSnipet } from 'src/app/Classes/image-snipet';
 import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
@@ -14,13 +16,8 @@ export class AddProductComponent implements OnInit {
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
 
-<<<<<<< HEAD
-  constructor(private fb:FormBuilder,private productServices:ProductService) { }
-
-=======
-  constructor(private fb:FormBuilder,private categoryService:ProductService,private catServicee:CategoryService) { }
+  constructor(private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
   categoryList:Category[];
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
   ngOnInit(): void {
     this.catServicee.returnAllCategory().subscribe
     ( categoryData=>
@@ -46,12 +43,29 @@ export class AddProductComponent implements OnInit {
     Image:['',[Validators.required]],
     color:['',[Validators.required]],
     Description:['',[Validators.required]],
-    discount:['',[Validators.required]],
+    discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
     Categories:['',[Validators.required]],
-
+  
   })
+  selectedFile:ImageSnipet;
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
 
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnipet(event.target.result, file);
+      alert(this.selectedFile);
+     
+    });
+
+    reader.readAsDataURL(file);
+  }
+  get image()
+  {
+    return this.addProductForm.get('Image')
+  }
   get name()
   {
     return this.addProductForm.get('name')
@@ -76,10 +90,7 @@ export class AddProductComponent implements OnInit {
   {
     return this.addProductForm.get('Quantity')
   }
-  get Image()
-  {
-    return this.addProductForm.get('Image')
-  }
+ 
   get Categories()
   {
     return this.addProductForm.get('Categories')
@@ -89,15 +100,23 @@ export class AddProductComponent implements OnInit {
   {
     return this.addProductForm.get('id')
   }
+
   addProduct()
   {
-           var product=new Product (this.id?.value,this.name?.value,this.Image?.value,
-            this.price?.value,this.Description?.value,this.Quantity?.value,
-            this.color?.value,this.Categories?.value,this.discount?.value);
+   
+           var product=new Product (this.name?.value,
+            this.price?.value,this.Quantity?.value,this.discount?.value,this.color?.value,this.Description?.value
+            ,this.image?.value,this.Categories?.value);
+            //alert(product.Discount)
+            //alert(product.Image)
+               
+           // alert(product.Image.src)
+          //console.log(product);
            this.productServices.addProduct(product).subscribe
             (data =>
-               {alert("Succesfully Added Category details")},Error => {alert("failed while adding Category details")}
+               {alert("Succesfully Added Product")},Error => {alert('error')}
            );
+
   }
 
 }

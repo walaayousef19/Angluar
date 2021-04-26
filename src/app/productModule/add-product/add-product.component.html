@@ -26,11 +26,11 @@
 
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Image</div>
-              <input type="file" [src]="imageURL" #Image accept="image/*"
-               formControlName="Image" class = "productImg form-control col-8"
-             >
-              <!--     (change)="handleFileInput($event.target.files)"
--->
+              <input type="file" 
+               formControlName="Image" class = "productImg form-control col-8" 
+               #imageInput  accept="image/*"
+               (change)="processFile(imageInput)"/>
+
           </div>
 
           <div class="row pt-2">
@@ -65,10 +65,6 @@
               class="form-control col-8" [class.is-invalid]="Quantity.invalid && Quantity.touched">
               <div *ngIf="Quantity.invalid && Quantity.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="Quantity.errors.required">Product Quantity is required</small>
-<<<<<<< HEAD
-              </div>
-          </div>
-=======
                    </div>
           </div>
           <div class="row pt-2">
@@ -83,7 +79,6 @@
                  </div>
 
         </div>
->>>>>>> f45cc1d0476b74ae2aff51d96f063acd9872a24d
 
           <button class="AddBtn" type="submit" (click)="addProduct()">Add Product </button>
 
