@@ -12,10 +12,10 @@ import { HeaderComponent } from './header/header.component';
 import { UpdateProductComponent } from './productModule/update-product/update-product.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
-  {path: '',component:DashboardComponent},
-
 {
   path:'Category/add',component:AddCategoryComponent
 },
@@ -26,14 +26,6 @@ const routes: Routes = [
 
   path:'Category/edit/:id',component:UpdateCategoryComponent
 
-<<<<<<< HEAD
-},
-{
-
-  path:'Product/edit/:id',component:UpdateProductComponent
-
-=======
->>>>>>> de796b276c415d92f0699c28d903a9d56d34fa44
 },
 {
   path:'Product/add',component:AddProductComponent
@@ -48,8 +40,21 @@ const routes: Routes = [
   path:"footer",component:FooterComponent
 },
 {
-  path:"productlist",component:ProductListComponent
+  path:"productlist",component:ProductListComponent,
+  children:
+  [
+    {
+      path:"productDetails",component:ProductDetailsComponent
+    }
+  ]
+},
+{
+  path:"cart",component:CartComponent
+},
+{
+  path:"productDetails",component:ProductDetailsComponent
 }
+
 
 ];
 
