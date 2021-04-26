@@ -4,9 +4,10 @@
   <div class="mytitle" >
       <h2 >Add Product</h2>
   </div>
+  <form [formGroup]="addProductForm" style="height:auto;">
   <div class="row" >
 
-    <form [formGroup]="addProductForm" style="height:auto;">
+
     <div class="row pt-5" >
         <div  class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Name</div>
         <input type="text" formControlName="name"
@@ -65,16 +66,20 @@
               class="form-control col-8" [class.is-invalid]="Quantity.invalid && Quantity.touched">
               <div *ngIf="Quantity.invalid && Quantity.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="Quantity.errors.required">Product Quantity is required</small>
-                   </div>
+
+              </div>
           </div>
+
+                   </div>
+
           <div class="row pt-2">
-            <div class="col-2 mt-3 offset-3">Category</div>
+            <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Category</div>
             <select  class="form-control col-8" fromControlerName="Categories"
             [class.is-invalid]="Categories.invalid && Categories.touched" >
 
                 <option *ngFor="let category of categoryList">{{category.Name}}</option>
             </select>
-            <div *ngIf="Categories.invalid && Categories.touched">
+            <div *ngIf="Categories.invalid && Categories.touched"  class="col-12">
               <small class="text-danger col-8 offset-3" *ngIf="Categories.errors.required">Product Categpry is required</small>
                  </div>
 
@@ -84,6 +89,6 @@
 
        </form>
     </div>
-    </div>
+
 
 

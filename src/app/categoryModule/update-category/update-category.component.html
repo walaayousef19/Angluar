@@ -1,10 +1,13 @@
-<div style="margin: auto;width:50%;margin-top: 7em;height: 200px;">
-    <legend>Update Category</legend>
+<div class="card" style="margin: auto;width:50%;margin-top: 7em;height: 200px;" >  
+    <div class="card-header" style="text-align:center">
+        <b>UPDATE CATEGORY</b>   
+    </div>  
+    <div class="card-body">  
 
     <div class="form-horizontal">
-        <hr />
         <form [formGroup]="updateCategoryForm" style="height: 200px;">
-    <div class="form-group">
+            <div class="row"> 
+    <div class="form-group col-sm-6">
        <label>Category Name</label>
     
        <input type="text" formControlName="name" class="form-control" [class.is-invalid]="name.invalid &&name.touched">
@@ -13,9 +16,12 @@
            </div>
 
     </div>
-    <div class="form-group">
+    </div>
+    <div class="row"> 
+    <div class="form-group col-sm-6">
         <div class="col-md-offset-2 col-md-10">
     <input type="submit" value="Update" (click)="UpdateCategory()" class="btn btn-primary" /> &nbsp;&nbsp;&nbsp;
+</div>
 </div>
 </div>
 
@@ -23,5 +29,6 @@
 </form>
 
 
+</div>
 </div>
 </div>

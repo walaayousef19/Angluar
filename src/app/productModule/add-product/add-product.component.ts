@@ -26,7 +26,7 @@ export class AddProductComponent implements OnInit {
         for(var i=0;i<this.categoryList.length;i++){
           console.log(this.categoryList[i]);
           alert( this.categoryList)
-        }   
+        }
       },
       errorResponse=>
       {
@@ -104,7 +104,7 @@ export class AddProductComponent implements OnInit {
   addProduct()
   {
    
-           var product=new Product (this.name?.value,
+           var product=new Product (0,this.name?.value,
             this.price?.value,this.Quantity?.value,this.discount?.value,this.color?.value,this.Description?.value
             ,this.image?.value,this.Categories?.value);
             //alert(product.Discount)
@@ -114,7 +114,7 @@ export class AddProductComponent implements OnInit {
           //console.log(product);
            this.productServices.addProduct(product).subscribe
             (data =>
-               {alert("Succesfully Added Product")},Error => {alert('error')}
+               {alert("Succesfully Added Product details")},Error => {alert("failed while adding Product details")}
            );
 
   }
