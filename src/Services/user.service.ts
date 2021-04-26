@@ -6,10 +6,10 @@ import { User } from 'src/app/Classes/User';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class UserService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:2415/api/User';
+  url='http://localhost:2415/api/Account';
   addUser(user:User): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(user);

@@ -6,7 +6,7 @@ import { Cart } from 'src/app/Classes/Cart';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class cartService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Cart';

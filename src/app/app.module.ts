@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { AddCategoryComponent } from './categoryModule/add-category/add-category.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
