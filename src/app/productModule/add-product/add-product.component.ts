@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ImageSnipet } from 'src/app/Classes/image-snipet';
 import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
@@ -30,7 +32,7 @@ export class AddProductComponent implements OnInit {
    // Image:['',[Validators.required]],
     color:['',[Validators.required]],
     Description:['',[Validators.required]],
-    discount:['',[Validators.required]],
+    discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
     Categories:['',[Validators.required]],
     })

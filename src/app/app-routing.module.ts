@@ -16,19 +16,22 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { LoginnComponent } from './loginn/loginn.component';
+import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [
+  {path:'',redirectTo:'/home',pathMatch:'full'},
 {
   path:'Category/add',component:AddCategoryComponent
 },
 {
-  path:'Category/Index',component:IndexComponent
+path:'home',component:HomeComponent
 },
 {
-
-  path:'Category/edit/:id',component:UpdateCategoryComponent
-
+  path:'Category/Index',component:IndexComponent
 },
+
 {
   path:'Product/edit/:id',component:UpdateProductComponent
 },
@@ -42,7 +45,10 @@ const routes: Routes = [
   path:"header",component:HeaderComponent
 },
 {
-  path:"register",component:RegisterComponent
+path:"Login",component:LoginnComponent
+},
+{
+  path:"Register",component:RegisterComponent
 },
 {
   path:"footer",component:FooterComponent
