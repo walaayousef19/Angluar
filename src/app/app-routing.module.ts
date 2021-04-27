@@ -52,7 +52,7 @@ const routes: Routes = [
   children:
   [
     {
-      path:"productDetails",component:ProductDetailsComponent
+      path:"productDetails/:id",component:ProductDetailsComponent
     }
   ]
 },
@@ -60,13 +60,11 @@ const routes: Routes = [
   path:"cart",component:CartComponent
 },
 {
-  path:"productDetails",component:ProductDetailsComponent
+  path:"productDetails/:id",component:ProductDetailsComponent
 },
 {
   path:"Admin",component:DashboardComponent
 }
-
-
 ];
 
 @NgModule({
