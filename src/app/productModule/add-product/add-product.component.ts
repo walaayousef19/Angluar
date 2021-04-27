@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
   [x: string]: any;
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
- 
+
   constructor(private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
   categoryList:Category[];
   productList:Product []=[];
@@ -30,17 +30,13 @@ export class AddProductComponent implements OnInit {
       name:['',[Validators.required]],
       price:['',[Validators.required]],
    // Image:['',[Validators.required]],
-    color:['',[Validators.required]],
     Description:['',[Validators.required]],
     discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
     Categories:['',[Validators.required]],
     })
-   this.getProduct();
-<<<<<<< HEAD
-  }
 
-=======
+   this.getProduct();
    this.catServicee.returnAllCategory().subscribe
    ( categoryData=>
      {
@@ -57,8 +53,34 @@ export class AddProductComponent implements OnInit {
      }
    );
   }
- 
->>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
+get name()
+{
+  return this.addProductForm.get("name");
+}
+
+get price()
+{
+  return this.addProductForm.get('price')
+}
+
+get Description()
+{
+  return this.addProductForm.get('Description')
+}
+get discount()
+{
+  return this.addProductForm.get('discount')
+}
+get Quantity()
+{
+  return this.addProductForm.get('Quantity')
+}
+
+get Categories()
+{
+  return this.addProductForm.get('Categories')
+}
+
   getProduct(){
     this.productServices.returnAllProduct().subscribe((Data)=>{
       this.productList=Data;
@@ -80,13 +102,6 @@ addProduct(product: Product) {
     this.Reset();
     this.ProductId = 0;
    });
-   this.router.navigate(['/Product/Index']);
  }
-<<<<<<< HEAD
-
 
 }
-=======
- 
-}
->>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d

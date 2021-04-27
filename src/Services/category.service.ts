@@ -22,11 +22,7 @@ export class CategoryService {
       alert("hello");
        return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
         {
-<<<<<<< HEAD
 
-=======
-      
->>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }
