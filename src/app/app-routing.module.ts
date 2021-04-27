@@ -58,7 +58,7 @@ path:"Login",component:LoginnComponent
   children:
   [
     {
-      path:"productDetails",component:ProductDetailsComponent
+      path:"productDetails/:id",component:ProductDetailsComponent
     }
   ]
 },
@@ -66,12 +66,14 @@ path:"Login",component:LoginnComponent
   path:"cart",component:CartComponent
 },
 {
-  path:"productDetails",component:ProductDetailsComponent
+  path:"productDetails/:id",component:ProductDetailsComponent
 },
 {
   path:"Admin",component:DashboardComponent
+},
+{
+  path:"Home",component:HomeComponent
 }
-
 ];
 
 @NgModule({
