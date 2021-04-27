@@ -1,38 +1,66 @@
 <div class="container" style="margin-left: 200px;justify-content: center; ">
-
+ 
   <div class="mytitle" >
       <h2 >Add Product</h2>
   </div>
   <form [formGroup]="addProductForm" style="height:auto;" (ngSubmit)="addProduct(addProductForm.value)">
   <div class="row" >
-
-
+ 
     <div class="row pt-5" >
         <div  class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Name</div>
         <input type="text" formControlName="name"
+<<<<<<< HEAD
          class="form-control col-8"[class.is-invalid]="name.invalid &&name.touched">
 
 
+=======
+         class="form-control col-8">
+         <!--
+         [class.is-invalid]="name.invalid &&name.touched"
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
          <div *ngIf="name.invalid && name.touched" class="col-12">
           <small class="text-danger col-8 offset-3" *ngIf="name.errors.required">Product Name is required</small>
-          </div>
+          </div>-->
       </div>
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Price</div>
               <input type="number" formControlName="price"
+<<<<<<< HEAD
               class="form-control col-8"
 
               [class.is-invalid]="price.invalid &&price.touched">
+=======
+              class="form-control col-8" >
+              <!--
+              [class.is-invalid]="price.invalid &&price.touched"
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
               <div *ngIf="price.invalid && price.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="price.errors.required">Product Price is required</small>
-              </div>
+              </div>-->
           </div>
          <!-- <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Image</div>
+<<<<<<< HEAD
               <input type="file" [src]="imageURL" #Image accept="image/*"
                formControlName="Image" class = "productImg form-control col-8"
              >(change)="handleFileInput($event.target.files)" </div>-->
+=======
+<<<<<<< HEAD
+              <input type="file" 
+               formControlName="Image" class = "productImg form-control col-8" 
+               #imageInput  accept="image/*"
+               (change)="processFile(imageInput)"/>
+
+          </div>
+
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
           <div class="row pt-2">
+=======
+              <input type="file" [src]="imageURL" #Image accept="image/*"
+               formControlName="Image" class = "productImg form-control col-8"
+             >(change)="handleFileInput($event.target.files)" </div>-->
+             <div class="row pt-2">
+>>>>>>> 22fa3726581af89db3fcfa98afe257094db38b07
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Color</div>
               <input type="text" formControlName="color"
               class="form-control col-8" >
@@ -61,7 +89,7 @@
                 <small class="text-danger col-8 offset-3" *ngIf="discount.errors.required">Product Discount is required</small>
               </div>-->
           </div>
-
+ 
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Quantity</div>
               <input type="number" formControlName="Quantity"
@@ -91,6 +119,7 @@
             <button class="btn btn-success mr-1" >Back</button></a>
         </div>
     </div>
+<<<<<<< HEAD
     <router-outlet></router-outlet>
 
 
@@ -145,3 +174,6 @@
 
 
 
+=======
+    <router-outlet></router-outlet>
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d

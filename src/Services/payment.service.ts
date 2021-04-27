@@ -6,7 +6,7 @@ import { Payment } from 'src/app/Classes/Payment';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class paymentService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Payment';

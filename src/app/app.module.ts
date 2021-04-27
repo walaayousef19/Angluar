@@ -18,6 +18,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './home/home.component';
+import { LoginnComponent } from './loginn/loginn.component';
+
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { HomeComponent } from './home/home.component';
     ProductListComponent,
     CartComponent,
     ProductDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    LoginnComponent
   ],
   imports: [
     BrowserModule,

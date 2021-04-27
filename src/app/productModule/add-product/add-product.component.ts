@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ImageSnipet } from 'src/app/Classes/image-snipet';
 import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
@@ -14,7 +16,7 @@ export class AddProductComponent implements OnInit {
   [x: string]: any;
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
-
+ 
   constructor(private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
   categoryList:Category[];
   productList:Product []=[];
@@ -30,13 +32,33 @@ export class AddProductComponent implements OnInit {
    // Image:['',[Validators.required]],
     color:['',[Validators.required]],
     Description:['',[Validators.required]],
-    discount:['',[Validators.required]],
+    discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
     Categories:['',[Validators.required]],
     })
    this.getProduct();
+<<<<<<< HEAD
   }
 
+=======
+   this.catServicee.returnAllCategory().subscribe
+   ( categoryData=>
+     {
+       this.categoryList=categoryData;
+       for(var i=0;i<this.categoryList.length;i++){
+         console.log(this.categoryList[i]);
+         alert( this.categoryList)
+       }
+     },
+     errorResponse=>
+     {
+   //   this.error=errorResponse;
+   console.log('failed');
+     }
+   );
+  }
+ 
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d
   getProduct(){
     this.productServices.returnAllProduct().subscribe((Data)=>{
       this.productList=Data;
@@ -60,6 +82,11 @@ addProduct(product: Product) {
    });
    this.router.navigate(['/Product/Index']);
  }
+<<<<<<< HEAD
 
 
 }
+=======
+ 
+}
+>>>>>>> ff304fbb29eab803d0dc4646bb16b8a69153f57d

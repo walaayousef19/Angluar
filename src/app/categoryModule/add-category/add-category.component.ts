@@ -43,9 +43,9 @@ addCategory(category: Category) {
    () => {  
     this.dataSaved = true;  
     this.massage = 'Record saved Successfully';  
-    this.getCategory();  
     this.Reset();  
-    this.CategoryId = 0;  
+    this.CategoryId = 0; 
+    this.getCategory();      
    });  
    this.router.navigate(['/Category/Index']);
  } 

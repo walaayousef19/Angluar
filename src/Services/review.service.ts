@@ -6,7 +6,7 @@ import { Review } from 'src/app/Classes/Review';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class reviewService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Review';
