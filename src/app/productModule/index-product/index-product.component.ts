@@ -16,19 +16,7 @@ export class IndexProductComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.productService.returnAllProduct().subscribe
-    ( productData=>
-      {
-        this.productList=productData;
-        for(var i=0;i<this.productList.length;i++){
-          console.log(this.productList[i]);
-        }
-      },
-      errorResponse=>
-      {
-       this.errorMsg=errorResponse;
-      }
-    );
+    this.getProduct();
   }
   getProduct(){
     this.productService.returnAllProduct().subscribe
@@ -47,6 +35,7 @@ export class IndexProductComponent implements OnInit {
     this.productService.deleteProduct(id)
     .subscribe(() => {
       console.log('Deleted');
+      this.getProduct();
     }, (err) => {
       console.log(err);
     });

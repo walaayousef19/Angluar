@@ -30,6 +30,9 @@ const routes: Routes = [
 
 },
 {
+  path:'Product/edit/:id',component:UpdateProductComponent
+},
+{
   path:'Product/add',component:AddProductComponent
 },
 {
@@ -58,6 +61,9 @@ const routes: Routes = [
 },
 {
   path:"productDetails",component:ProductDetailsComponent
+},
+{
+  path:"Admin",component:DashboardComponent
 }
 
 

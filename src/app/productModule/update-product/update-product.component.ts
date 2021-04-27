@@ -27,7 +27,6 @@ export class UpdateProductComponent implements OnInit {
     id:['',[]],
     name:['',[Validators.required]],
     price:['',[Validators.required]],
-    Image:['',[Validators.required]],
     color:['',[Validators.required]],
     Description:['',[Validators.required]],
     discount:['',[Validators.required]],
@@ -60,10 +59,7 @@ export class UpdateProductComponent implements OnInit {
   {
     return this.updateProductForm.get('Quantity')
   }
-  get Image()
-  {
-    return this.updateProductForm.get('Image')
-  }
+
   get Categories()
   {
     return this.updateProductForm.get('Categories')
@@ -102,7 +98,6 @@ productId:number;
      //   alert(this.caty.Name);
         this.updateProductForm.controls['name'].setValue(this.product.Name);
         this.updateProductForm.controls['price'].setValue(this.product.Price);
-        this.updateProductForm.controls['Image'].setValue(this.product.Image);
         this.updateProductForm.controls['color'].setValue(this.product.Color);
         this.updateProductForm.controls['Description'].setValue(this.product.Description);
         this.updateProductForm.controls['discount'].setValue(this.product.Discount);
