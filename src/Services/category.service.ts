@@ -19,9 +19,10 @@ export class CategoryService {
     
     returnAllCategory():Observable<Category[]>
     {
+      alert("hello");
        return this.http.get<Category[]>(this.url).pipe(catchError((err)=>
         {
-        
+      
           return throwError(err.message ||"Internal Server error contact site adminstarator");
         }));
     }

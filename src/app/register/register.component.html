@@ -2,7 +2,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container  registration-form" >
@@ -85,71 +85,4 @@
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </form> <!-- /form -->
         </div> <!-- ./container -->
-<<<<<<< HEAD
-        <script>
-            $(function(){
-            $.validator.setDefaults({
-                highlight: function(element){
-                    $(element)
-                    .closest('.form-group')
-                    .addClass('has-error')
-                },
-                unhighlight: function(element){
-                    $(element)
-                    .closest('.form-group')
-                    .removeClass('has-error')
-                }
-            });
-            
-            $.validate({
-                rules:
-                {	
-                    password: "required",
-                    birthDate: "required",
-                    weight: {
-                        required:true,
-                        number:true
-                    },
-                    height:  {
-                        required:true,
-                        number:true
-                    },
-                    email: {
-                        required: true,
-                        email: true
-                    }
-                },
-                    messages:{			
-                        email: {
-                        required: true,
-                        email: true
-                    }
-                },
-                        password: {
-                            required: " Please enter password"
-                        },
-                        birthDate: {
-                            required: " Please enter birthdate"
-                        },
-                        email: {
-                            required: ' Please enter email',
-                            email: ' Please enter valid email'
-                        },
-                        weight: {
-                            required: " Please enter your weight",
-                            number: " Only numbers allowed"
-                        },
-                        height: {
-                            required: " Please enter your height",
-                            number: " Only numbers allowed"
-                        },
-                    })
-                    
         
-                
-                })
-                
-        </script>
-=======
-        
->>>>>>> c7af2db00c68517d4bb8dcdf4633c84280981a24
