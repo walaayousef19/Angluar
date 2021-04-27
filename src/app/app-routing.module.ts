@@ -33,6 +33,9 @@ path:'home',component:HomeComponent
 },
 
 {
+  path:'Product/edit/:id',component:UpdateProductComponent
+},
+{
   path:'Product/add',component:AddProductComponent
 },
 {
@@ -64,6 +67,9 @@ path:"Login",component:LoginnComponent
 },
 {
   path:"productDetails",component:ProductDetailsComponent
+},
+{
+  path:"Admin",component:DashboardComponent
 }
 
 ];
