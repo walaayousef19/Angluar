@@ -4,95 +4,62 @@ import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
 import { Product } from '../../Classes/product';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
+  [x: string]: any;
     imageURL:string="../assets/image/img.jpeg";
     fileToUpload:File;
 
   constructor(private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
   categoryList:Category[];
+  productList:Product []=[];
+  errorMsg: any;
+  dataSaved=false;
+  massage: string;
+  ProductId: number=0;
+  addProductForm:any;
   ngOnInit(): void {
-    this.catServicee.returnAllCategory().subscribe
-    ( categoryData=>
-      {
-        this.categoryList=categoryData;
-        for(var i=0;i<this.categoryList.length;i++){
-          console.log(this.categoryList[i]);
-          alert( this.categoryList)
-        }
-      },
-      errorResponse=>
-      {
-    //   this.error=errorResponse;
-    console.log('failed');
-      }
-    );
-  }
-  addProductForm=this.fb.group({
-
-    id:['',[]],
-    name:['',[Validators.required]],
-    price:['',[Validators.required]],
-    Image:['',[Validators.required]],
+    this.addProductForm=this.fb.group({
+      name:['',[Validators.required]],
+      price:['',[Validators.required]],
+   // Image:['',[Validators.required]],
     color:['',[Validators.required]],
     Description:['',[Validators.required]],
     discount:['',[Validators.required]],
     Quantity:['',[Validators.required]],
     Categories:['',[Validators.required]],
-
-  })
-
-  get name()
-  {
-    return this.addProductForm.get('name')
-  }
-  get price()
-  {
-    return this.addProductForm.get('price')
-  }
-  get color()
-  {
-    return this.addProductForm.get('color')
-  }
-  get Description()
-  {
-    return this.addProductForm.get('Description')
-  }
-  get discount()
-  {
-    return this.addProductForm.get('discount')
-  }
-  get Quantity()
-  {
-    return this.addProductForm.get('Quantity')
-  }
-  get Image()
-  {
-    return this.addProductForm.get('Image')
-  }
-  get Categories()
-  {
-    return this.addProductForm.get('Categories')
+    })
+   this.getProduct();
   }
 
-  get id()
-  {
-    return this.addProductForm.get('id')
+  getProduct(){
+    this.productServices.returnAllProduct().subscribe((Data)=>{
+      this.productList=Data;
+    },(err)=>{
+    this.errorMsg=err;
+    })
   }
-  addProduct()
-  {
-           var product=new Product (this.id?.value,this.name?.value,this.Image?.value,
-            this.price?.value,this.Description?.value,this.Quantity?.value,
-            this.color?.value,this.Categories?.value,this.discount?.value);
-           this.productServices.addProduct(product).subscribe
-            (data =>
-               {alert("Succesfully Added Product details")},Error => {alert("failed while adding Product details")}
-           );
-  }
+Reset() {
+  this.addProductForm.reset();
+ }
+addProduct(product: Product) {
+  debugger;
+  product.ID = this.ProductId;
+  this,this.productServices.addProduct(product).subscribe(
+   () => {
+    this.dataSaved = true;
+    this.massage = 'Record saved Successfully';
+    this.getProduct();
+    this.Reset();
+    this.ProductId = 0;
+   });
+   this.router.navigate(['/Product/Index']);
+ }
+
 
 }

@@ -1,17 +1,18 @@
-
 <div class="container" style="margin-left: 200px;justify-content: center; ">
 
   <div class="mytitle" >
       <h2 >Add Product</h2>
   </div>
-  <form [formGroup]="addProductForm" style="height:auto;">
+  <form [formGroup]="addProductForm" style="height:auto;" (ngSubmit)="addProduct(addProductForm.value)">
   <div class="row" >
 
 
     <div class="row pt-5" >
         <div  class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Name</div>
         <input type="text" formControlName="name"
-         class="form-control col-8" [class.is-invalid]="name.invalid &&name.touched">
+         class="form-control col-8"[class.is-invalid]="name.invalid &&name.touched">
+
+
          <div *ngIf="name.invalid && name.touched" class="col-12">
           <small class="text-danger col-8 offset-3" *ngIf="name.errors.required">Product Name is required</small>
           </div>
@@ -19,76 +20,128 @@
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Price</div>
               <input type="number" formControlName="price"
-              class="form-control col-8" [class.is-invalid]="price.invalid &&price.touched">
+              class="form-control col-8"
+
+              [class.is-invalid]="price.invalid &&price.touched">
               <div *ngIf="price.invalid && price.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="price.errors.required">Product Price is required</small>
               </div>
           </div>
-
-          <div class="row pt-2">
+         <!-- <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Image</div>
               <input type="file" [src]="imageURL" #Image accept="image/*"
                formControlName="Image" class = "productImg form-control col-8"
-             >
-              <!--     (change)="handleFileInput($event.target.files)"
--->
-          </div>
-
+             >(change)="handleFileInput($event.target.files)" </div>-->
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Color</div>
               <input type="text" formControlName="color"
-              class="form-control col-8" [class.is-invalid]="color.invalid &&color.touched">
+              class="form-control col-8" >
+                      <!--
+              [class.is-invalid]="color.invalid &&color.touched"
               <div *ngIf="color.invalid && color.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="color.errors.required">Product Color is required</small>
-               </div>
+               </div>  -->
           </div>
-
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Description</div>
               <input type="text" formControlName="Description"
-              class="form-control col-8" [class.is-invalid]="Description.invalid &&Description.touched">
+              class="form-control col-8" >
+              <!--[class.is-invalid]="Description.invalid &&Description.touched"
               <div *ngIf="Description.invalid && Description.touched" class="col-6">
                 <small class="text-danger col-8 offset-6" *ngIf="Description.errors.required">Product Desscription is required</small>
-              </div>
+              </div>-->
           </div>
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Discount</div>
               <input type="number" formControlName="discount"
-              class="form-control col-8" [class.is-invalid]="discount.invalid && discount.touched">
+              class="form-control col-8">
+              <!--
+              [class.is-invalid]="discount.invalid && discount.touched"
               <div *ngIf="discount.invalid && discount.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="discount.errors.required">Product Discount is required</small>
-              </div>
+              </div>-->
           </div>
 
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Quantity</div>
               <input type="number" formControlName="Quantity"
-              class="form-control col-8" [class.is-invalid]="Quantity.invalid && Quantity.touched">
+              class="form-control col-8" >
+              <!--
+              [class.is-invalid]="Quantity.invalid && Quantity.touched">
               <div *ngIf="Quantity.invalid && Quantity.touched" class="col-12">
                 <small class="text-danger col-8 offset-3" *ngIf="Quantity.errors.required">Product Quantity is required</small>
-
-              </div>
-          </div>
-
-                   </div>
-
+              </div>-->
+          </div></div>
           <div class="row pt-2">
             <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Category</div>
             <select  class="form-control col-8" fromControlerName="Categories"
-            [class.is-invalid]="Categories.invalid && Categories.touched" >
-
+            >
                 <option *ngFor="let category of categoryList">{{category.Name}}</option>
             </select>
+            <!--
+            [class.is-invalid]="Categories.invalid && Categories.touched"
             <div *ngIf="Categories.invalid && Categories.touched"  class="col-12">
               <small class="text-danger col-8 offset-3" *ngIf="Categories.errors.required">Product Categpry is required</small>
-                 </div>
-
-        </div>
-
-          <button class="AddBtn" type="submit" (click)="addProduct()">Add Product </button>
-
+                 </div>-->
+                </div>
+          <button class="AddBtn" type="submit">Add Product </button>
        </form>
+       <div class="card-footer">
+        <a routerLink="/Product/Index" class="nav-link" >
+            <button class="btn btn-success mr-1" >Back</button></a>
+        </div>
     </div>
+    <router-outlet></router-outlet>
+
+
+
+
+
+
+    <p>add-category works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    </head>
+    <body class="sb-nav-fixed">
+        <div class="card" style="margin: auto;width:50%;margin-top: 7em;height: 200px;" >
+            <div class="card-header" style="text-align:center">
+                <b>ADD NEW CATEGORY</b>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="addProductForm" style="height:auto;" (ngSubmit)="addProduct(addProductForm.value)">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                       <label style="font-weight: bold;font-size: 20px;">Product Name :</label>
+                       <input type="text" formControlName="name" placeholder="Enter Product Name..."
+                       class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label style="font-weight: bold;font-size: 20px;">Product Price :</label>
+                      <input type="text" formControlName="price" placeholder="Enter Product Name..."
+                      class="form-control">
+                   </div>
+
+                   <div class="form-group col-sm-6">
+                    <label style="font-weight: bold;font-size: 20px;">Product Price :</label>
+                    <input type="text" formControlName="price" placeholder="Enter Product Name..."
+                    class="form-control">
+                 </div>
+                    <div class="form-group col-sm-6"><br>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 14px;" >Add Product</button>
+                    </div>
+                    </div>
+                    </form>
+                    </div><br><br><br><br>
+                    <div class="card-footer">
+                    <a routerLink="/Category/Index" class="nav-link" >
+                        <button class="btn btn-success mr-1" >Back</button></a>
+                    </div></div>
+                    </body>
+                    </html>
 
 
 
