@@ -9,11 +9,11 @@ import { User } from 'src/app/Classes/User';
 export class UserService {
 
   constructor(private http:HttpClient) { }
-  url='http://localhost:2415/api/Account';
+  url='http://localhost:2415/api/User';
   addUser(user:User): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(user);
- 
+ alert('hello')
     return this.http.post<User>(this.url, body,{headers:headers}) 
 }
     
