@@ -70,9 +70,6 @@ path:"Login",component:LoginnComponent
 },
 {
   path:"Admin",component:DashboardComponent
-},
-{
-  path:"Home",component:HomeComponent
 }
 ];
 
