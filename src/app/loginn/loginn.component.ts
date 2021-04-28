@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/Services/login.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { LoginService } from 'src/Services/login.service';
 })
 export class LoginnComponent implements OnInit {
 
-  constructor(private loginService:LoginService,private fb:FormBuilder) { }
+  constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -46,7 +47,7 @@ export class LoginnComponent implements OnInit {
         });
  
 
-
+       this.router.navigate(['/Home']);
   }
 
 }
