@@ -31,13 +31,20 @@ export class LoginnComponent implements OnInit {
   Login()
   {
        var login={
-         userNmae:this.name,
-         password:this.password,
+         UserNmae:this.name?.value,
+         Password:this.password?.value,
          grant_type: 'password',
 
 
        }
-       this.loginService.Login(login);
+       this.loginService.Login(login).subscribe
+       (data =>
+        {alert("Logined Succesfully")},Error => {alert("Login Failed")
+     //  this.dataSaved = true;  
+  //  this.massage = 'Record saved Successfully';  
+  
+        });
+ 
 
 
   }
