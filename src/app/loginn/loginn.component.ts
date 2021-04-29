@@ -34,11 +34,8 @@ export class LoginnComponent implements OnInit {
        var login={
          UserNmae:this.name?.value,
          Password:this.password?.value,
-         grant_type: 'password',
-
-
        }
-       this.loginService.Login(login).subscribe
+       this.loginService.login(login.UserNmae,login.Password).subscribe
        (data =>
         {alert("Logined Succesfully")},Error => {alert("Login Failed")
      //  this.dataSaved = true;  
@@ -47,7 +44,7 @@ export class LoginnComponent implements OnInit {
         });
  
 
-       this.router.navigate(['/Home']);
+      // this.router.navigate(['/home']);
   }
 
 }

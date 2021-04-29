@@ -6,7 +6,7 @@ import { Wishlist } from 'src/app/Classes/WishList';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class wishlistService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Wishlist';

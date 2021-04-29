@@ -57,8 +57,8 @@
                                     </div>
                                 </div>
                                 <div class="action">
-                                    <a class="btn" [routerLink]="['/cart']"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
-                                    <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Add to WishList</a>
+                                    <a class="btn" (click)="addToCart()"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
+                                    <a class="btn" (click)="addToWishList()"><i class="fa fa-shopping-bag"></i>Add to WishList</a>
                                 </div>
                             </div>
                         </div>
