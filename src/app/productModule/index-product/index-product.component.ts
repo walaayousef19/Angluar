@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/Classes/category';
 import { Product } from 'src/app/Classes/product';
 import { ProductService } from '../../../Services/product.service';
+import {DomSanitizer,SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-index-product',
@@ -19,9 +20,12 @@ export class IndexProductComponent implements OnInit {
   massage: string;
   ProductId: number=0;
   addProductForm:any;
-  constructor(private fb: FormBuilder,private productService:ProductService, private route: ActivatedRoute ,
+  constructor(private dom: DomSanitizer,private fb: FormBuilder,private productService:ProductService, private route: ActivatedRoute ,
     private router: Router) { }
 
+    sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return  "http://localhost:2415/App_Data/"+imageUrl
+  }
   ngOnInit(): void {
     this.addProductForm=this.fb.group({
       name:['',[Validators.required]],
@@ -34,11 +38,16 @@ export class IndexProductComponent implements OnInit {
     })
     this.getProduct();
   }
+  trustImage(item:any) {
+    return this.dom.bypassSecurityTrustStyle(item);
+}
   getProduct(){
     this.productService.returnAllProduct().subscribe
     ( productData=>
       {
         this.productList=productData;
+      
+
       },
       errorResponse=>
       {

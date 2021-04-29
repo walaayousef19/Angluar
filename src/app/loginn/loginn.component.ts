@@ -32,19 +32,25 @@ export class LoginnComponent implements OnInit {
   Login()
   {
        var login={
-         UserNmae:this.name?.value,
+         UserName:this.name?.value,
          Password:this.password?.value,
+         grant_type: 'password',
+
+
+
        }
-       this.loginService.login(login.UserNmae,login.Password).subscribe
+   
+       this.loginService.login(login.UserName,login.Password).subscribe
        (data =>
-        {alert("Logined Succesfully")},Error => {alert("Login Failed")
+        {alert("Logined Succesfully")
+      alert(data)},Error => {alert("Login Failed")
      //  this.dataSaved = true;  
   //  this.massage = 'Record saved Successfully';  
   
         });
  
 
-      // this.router.navigate(['/home']);
+      // this.router.navigate(['/Home']);
   }
 
 }
