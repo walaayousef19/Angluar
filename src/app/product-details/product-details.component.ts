@@ -44,10 +44,10 @@ export class ProductDetailsComponent implements OnInit {
        });
   }
   addToWishList(){
-  this.wishListService.addWishlist(this.wishList).subscribe(
+  this.wishListService.addProductToWishlist(this.prodId).subscribe(
     (res)=>
     {
-      alert(res);
+      //alert(res);
       alert("Added Successfuly");
     },
 
@@ -58,7 +58,7 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
   addToCart(){
-    this.cartService.addCart(this.cart).subscribe(
+    this.cartService.addProductToCart(this.prodId).subscribe(
       (res)=>
       {
         alert(res);

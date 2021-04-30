@@ -16,6 +16,10 @@ export class wishlistService {
  
     return this.http.post<Wishlist>(this.url, body,{headers:headers}) 
 }
+addProductToWishlist(id:number): Observable<number> {
+  const headers = { 'content-type': 'application/json'}  
+  return this.http.post<number>(this.url+'/AddToWishlist', id,{headers:headers}) 
+}
     
     returnAllWishlists():Observable<Wishlist[]>
     {

@@ -9,7 +9,7 @@ import { LoginService } from 'src/Services/login.service';
   styleUrls: ['./loginn.component.scss']
 })
 export class LoginnComponent implements OnInit {
-
+flag:boolean=false;
   constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
@@ -42,15 +42,21 @@ export class LoginnComponent implements OnInit {
    
        this.loginService.login(login.UserName,login.Password).subscribe
        (data =>
-        {alert("Logined Succesfully")
-      alert(data)},Error => {alert("Login Failed")
-     //  this.dataSaved = true;  
-  //  this.massage = 'Record saved Successfully';  
+        {
+          alert("Logined Succesfully");
+       if(login.UserName=="admin" && login.Password=="admin"){
+           this.flag=true;
+       }
+    },
+      
+      Error => 
+      {
+        alert("Login Failed")
   
         });
  
 
-      // this.router.navigate(['/Home']);
+      // this.router.navigate(['/home']);
   }
 
 }
