@@ -41,6 +41,17 @@
                 <small class="text-danger col-8 offset-6" *ngIf="Description.errors.required">Product Desscription is required</small>
               </div>
           </div>
+
+
+          <div class="row pt-2">
+            <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Color</div>
+            <input type="text" formControlName="Color"
+            class="form-control col-8" [class.is-invalid]="Color.invalid &&Color.touched">
+            <div *ngIf="Color.invalid && Color.touched" class="col-6">
+              <small class="text-danger col-8 offset-6" *ngIf="Color.errors.required">Product Color is required</small>
+            </div>
+        </div>
+
           <div class="row pt-2">
               <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Discount</div>
               <input type="number" formControlName="discount"

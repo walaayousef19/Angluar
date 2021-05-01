@@ -6,7 +6,7 @@ import { CategoryService } from 'src/Services/category.service';
 import { ProductService } from '../../../Services/product.service';
 import { Category } from '../../Classes/category';
 import { Product } from '../../Classes/product';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from 'src/Services/upload.service';
 @Component({
   selector: 'app-add-product',
@@ -20,7 +20,7 @@ export class AddProductComponent implements OnInit {
     loading: boolean = false; // Flag variable
   file: File; // 
 
-  constructor( private fileUploadService:UploadService,private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService) { }
+  constructor( private fileUploadService:UploadService,private fb:FormBuilder,private productServices:ProductService,private catServicee:CategoryService,private router:Router) { }
   categoryList:Category[];
   productList:Product []=[];
   errorMsg: any;
@@ -37,6 +37,7 @@ export class AddProductComponent implements OnInit {
     discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
     CategoryId:[0,[Validators.required]],
+    Color:['',[Validators.required]]
     })
 
    this.getProduct();
@@ -68,7 +69,10 @@ get price()
 {
   return this.addProductForm.get('price')
 }
-
+get Color()
+{
+  return this.addProductForm.get('Color')
+}
 get Description()
 {
   return this.addProductForm.get('Description')
@@ -136,8 +140,12 @@ product.CategoryId=this.catId;
     this.dataSaved = true;
     this.massage = 'Record saved Successfully';
     this.getProduct();
-    this.Reset();
+  //  this.Reset();
     this.ProductId = 0;
    });
+   this.router.navigate(['/Product/Index']); 
+   alert("f");
+
  }
+
 }

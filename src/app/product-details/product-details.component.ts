@@ -43,22 +43,19 @@ export class ProductDetailsComponent implements OnInit {
      
        });
   }
+  WishList:Array<Product>=[]
   addToWishList(){
-  this.wishListService.addProductToWishlist(this.prodId).subscribe(
-    (res)=>
-    {
-      //alert(res);
-      alert("Added Successfuly");
-    },
+    
+  //  this.WishList.push(this.product)
+this.WishList.push(this.product);
 
-    (errorResponse)=>
-    {
-     this.errorMsg=errorResponse; 
-     alert("falied" +this.errorMsg);    
-    })
+     // JSON.stringify(this.cartList);
+      localStorage.setItem("wishlist", JSON.stringify(this.WishList));
+    
   }
+  cartList:Array<Product>=[]
   addToCart(){
-    this.cartService.addProductToCart(this.prodId).subscribe(
+  /*  this.cartService.addProductToCart(this.prodId).subscribe(
       (res)=>
       {
         alert(res);
@@ -69,7 +66,12 @@ export class ProductDetailsComponent implements OnInit {
       {
        this.errorMsg=errorResponse; 
        alert("falied" +this.errorMsg);    
-      })
+      })*/
+      this.cartList.push(this.product)
+     // JSON.stringify(this.cartList);
+      localStorage.setItem("ProductList", JSON.stringify(this.cartList));
+    //console.log(localStorage.getItem("ProductList"));
+
   }
 
 }

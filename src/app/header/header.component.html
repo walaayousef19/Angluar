@@ -57,7 +57,8 @@
                            
                         </div>
                         <div class="navbar-nav ml-auto">
-                            <div class="nav-item dropdown">
+                           
+                            <div class="nav-item dropdown" *ngIf="!logFlag">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
                                 <div class="dropdown-menu">
                                     <a routerLink="/Login" class="dropdown-item" style="color: black;">Login</a>
@@ -65,11 +66,9 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <a routerLink="/Admin" class="nav-item nav-link" *ngIf="flag">dashboard</a>
-=======
-                        <a routerLink="/Admin" id="admin" class="nav-item nav-link">dashboard</a>
->>>>>>> 9fdff183e4ec1b7565bb47d984d5f29c5044141f
+                        <a routerLink="/Login" *ngIf="logFlag" class="nav-item nav-link" (click)="LogOut()"> LogOut</a>
+                      
                     </div>
                 </nav>
             </div>

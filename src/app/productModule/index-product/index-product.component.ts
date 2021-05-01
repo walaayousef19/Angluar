@@ -46,6 +46,7 @@ export class IndexProductComponent implements OnInit {
     ( productData=>
       {
         this.productList=productData;
+        alert(this.productList.length);
       
 console.log(this.productList);
       },

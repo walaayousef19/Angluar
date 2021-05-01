@@ -75,7 +75,9 @@ export class RegisterComponent implements OnInit {
            
            this.userService.addUser(user).subscribe
             (data =>
-               {alert("Succesfully Added User details")},Error => {alert("failed while adding User details")
+            
+               {  localStorage.setItem("logged","true");
+                 alert("Succesfully Added User details")},Error => {alert("failed while adding User details")
               this.dataSaved = true;  
            this.massage = 'Record saved Successfully';  
          

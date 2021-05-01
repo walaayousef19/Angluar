@@ -18,7 +18,7 @@ export class cartService {
 }
 addProductToCart(id:number): Observable<number> {
   const headers = { 'content-type': 'application/json'}  
-  return this.http.post<number>(this.url+'/AddToCart', id,{headers:headers}) 
+  return this.http.post<number>(this.url+'/'+id,{headers:headers}) 
 }
     
     returnAllCarts():Observable<Cart[]>

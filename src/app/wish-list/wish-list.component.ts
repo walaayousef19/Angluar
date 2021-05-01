@@ -15,23 +15,23 @@ product:Product;
 productId:number;
   errorMsg: any;
   constructor(  private route: ActivatedRoute ,private productService:ProductService ,private router: Router,private wishListService:wishlistService) { }
-
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.productId= this.route.snapshot.params['id'];;
-          this.productService.getProductById(this.productId).subscribe(
-           (res)=>
-           {
-             this.product=res;
-           },
-     
-           (errorResponse)=>
-           {
-            this.errorMsg=errorResponse;     
-           }
-         );
-     
-       });
+wishList:Product[]
+  ngOnInit(): void 
+  {
+    console.log(localStorage.getItem("wishlist"));
+    this.wishList=JSON.parse(localStorage.getItem("wishlist")||'{}')
+  //  console.log(this.wishList);
   }
 
+  cartList:Array<Product>=[]
+  
+  addToCart(Product:Product)
+  {
+this.cartList=JSON.parse(localStorage.getItem("ProductList")||'{}');
+this.cartList.push(Product);
+localStorage.setItem("ProductList",JSON.stringify(this.cartList))
+const index: number = this.wishList.indexOf(Product);
+this.wishList.splice(index, 1);
+localStorage.setItem("wishlist",JSON.stringify(this.wishList));
+  }
 }
