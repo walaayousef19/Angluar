@@ -24,7 +24,7 @@ export class IndexProductComponent implements OnInit {
     private router: Router) { }
 
     sanitizeImageUrl(imageUrl: string): SafeUrl {
-    return  "http://localhost:2415/App_Data/"+imageUrl
+      return this.dom.bypassSecurityTrustUrl(imageUrl);
   }
   ngOnInit(): void {
     this.addProductForm=this.fb.group({
@@ -47,7 +47,7 @@ export class IndexProductComponent implements OnInit {
       {
         this.productList=productData;
       
-
+console.log(this.productList);
       },
       errorResponse=>
       {

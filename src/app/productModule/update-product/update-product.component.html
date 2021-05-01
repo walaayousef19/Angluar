@@ -72,7 +72,7 @@
             <select  class="form-control col-8" fromControlerName="Categories"
             [class.is-invalid]="Categories.invalid && Categories.touched" >
 
-                <option *ngFor="let category of categoryList">{{category.Name}}</option>
+                <option *ngFor="let category of categoryList" value={{category.ID}}>{{category.Name}}</option>
             </select>
             <div *ngIf="Categories.invalid && Categories.touched"  class="col-12">
               <small class="text-danger col-8 offset-3" *ngIf="Categories.errors.required">Product Categpry is required</small>
@@ -81,7 +81,6 @@
         </div>
 
           <button class="AddBtn" type="submit" (click)="UpdateProduct()">Update Product </button>
-
        </form>
     </div>
     </div>

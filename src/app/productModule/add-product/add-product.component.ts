@@ -36,7 +36,7 @@ export class AddProductComponent implements OnInit {
     Description:['',[Validators.required]],
     discount:[,[Validators.required]],
     Quantity:['',[Validators.required]],
-    Categories:['',[Validators.required]],
+    CategoryId:[0,[Validators.required]],
     })
 
    this.getProduct();
@@ -45,8 +45,8 @@ export class AddProductComponent implements OnInit {
      {
        this.categoryList=categoryData;
        for(var i=0;i<this.categoryList.length;i++){
-         console.log(this.categoryList[i]);
-         alert( this.categoryList)
+         //console.log(this.categoryList[i]);
+       // alert( this.categoryList)
        }
      },
      errorResponse=>
@@ -82,9 +82,9 @@ get Quantity()
   return this.addProductForm.get('Quantity')
 }
 
-get Categories()
+get CategoryId()
 {
-  return this.addProductForm.get('Categories')
+  return this.addProductForm.get('CategoryId')
 }
 
   getProduct(){
@@ -108,18 +108,29 @@ Reset() {
   
                     // Short link via api response
                     this.shortLink = event.link;
-  
+                       alert(event);
+                       this.finalpath=event;
                     this.loading = false; // Flag variable 
                 }
+                alert(event);
+                this.finalpath=event;
             }
         );
     }
-
+    catId:any;
+    setCat(Catid:any)
+    {
+      this.catId=Catid;      
+    }
+finalpath:string;
 addProduct(product: Product) {
-  debugger;
-  product.Image=this.image.value.split('\\')[2]
+  
+  // product.Image=this.image.value.split('\\')[2]
+  product.Image=this.finalpath;
+product.CategoryId=this.catId;
+//alert(this.catId);
   product.ID = this.ProductId;
-  alert(product.Image);
+ // alert(product.Image);
   this,this.productServices.addProduct(product).subscribe(
    () => {
     this.dataSaved = true;

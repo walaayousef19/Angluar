@@ -10,7 +10,7 @@ export class Product {
         public Color:string,
         public Description:string,
         public Image:string,
-        public Categories:Category
+        public CategoryId:Category
 
     ){}
 }

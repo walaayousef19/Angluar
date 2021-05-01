@@ -10,11 +10,11 @@ export class cartService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Cart';
-  addCart(cart:Cart): Observable<any> {
+  addCart(prodId:number): Observable<any> {
     const headers = { 'content-type': 'application/json'}  
-    const body=JSON.stringify(cart);
+    //const body=JSON.stringify(cart);
  
-    return this.http.post<Cart>(this.url, body,{headers:headers}) 
+    return this.http.post<Cart>(this.url+prodId,{headers:headers}) 
 }
     
     returnAllCarts():Observable<Cart[]>

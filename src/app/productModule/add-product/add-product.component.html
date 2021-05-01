@@ -61,13 +61,13 @@
           </div>
           <div class="row pt-2">
             <div class="col-2 mt-3 offset-1" style="font-weight: bold;">Product Category</div>
-            <select  class="form-control col-8" fromControlerName="Categories"
-            [class.is-invalid]="Categories.invalid && Categories.touched" >
-
-                <option *ngFor="let category of categoryList">{{category.Name}}</option>
+            <select  class="form-control col-8" fromControlerName="CategoryId" 
+            [class.is-invalid]="CategoryId.invalid && CategoryId.touched"  #selectElem (change)="setCat(selectElem.value)" >
+            <option value="">Choose your Category</option>
+                <option *ngFor="let category of categoryList" [value]="category.ID" >{{category.Name}}</option>
             </select>
-            <div *ngIf="Categories.invalid && Categories.touched"  class="col-12">
-              <small class="text-danger col-8 offset-3" *ngIf="Categories.errors.required">Product Categpry is required</small>
+            <div *ngIf="CategoryId.invalid && CategoryId.touched"  class="col-12">
+              <small class="text-danger col-8 offset-3" *ngIf="CategoryId.errors.required">Product Categpry is required</small>
                  </div>
 
         </div>

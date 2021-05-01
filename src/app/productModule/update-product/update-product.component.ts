@@ -62,7 +62,7 @@ export class UpdateProductComponent implements OnInit {
 
   get Categories()
   {
-    return this.updateProductForm.get('Categories')
+    return this.updateProductForm.get('CategoryId')
   }
 
   get id()
@@ -78,8 +78,8 @@ productId:number;
       {
         this.categoryList=categoryData;
         for(var i=0;i<this.categoryList.length;i++){
-          console.log(this.categoryList[i]);
-          alert( this.categoryList)
+        //  console.log(this.categoryList[i]);
+         // alert( this.categoryList)
         }
       },
       errorResponse=>
@@ -102,7 +102,7 @@ productId:number;
         this.updateProductForm.controls['Description'].setValue(this.product.Description);
         this.updateProductForm.controls['discount'].setValue(this.product.Discount);
         this.updateProductForm.controls['Quantity'].setValue(this.product.Quantity);
-        this.updateProductForm.controls['Categories'].setValue(this.product.Categories);
+        this.updateProductForm.controls['CategoryId'].setValue(this.product.CategoryId);
 
 
 

@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Event, Router } from '@angular/router';
+
+
+
 import { LoginService } from 'src/Services/login.service';
+import { MserviceService } from 'src/Services/mservice.service';
+
+
+
 
 @Component({
   selector: 'app-loginn',
@@ -10,10 +17,14 @@ import { LoginService } from 'src/Services/login.service';
 })
 export class LoginnComponent implements OnInit {
 
-  constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
+  constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router,private s:MserviceService) { }
 
   ngOnInit(): void {
   }
+  sendDataToService() {
+    this.s.setData(this.flag);
+}
+  flag:boolean=false
   LoginForm=this.fb.group({
     userName:[''],
     password:['']
@@ -25,10 +36,14 @@ export class LoginnComponent implements OnInit {
     return this.LoginForm.get('password');
 
   }
+
   get name()
   {
     return this.LoginForm.get('userName')
   }
+ 
+ 
+  
   Login()
   {
        var login={
@@ -39,7 +54,15 @@ export class LoginnComponent implements OnInit {
 
 
        }
-   
+       if(login.UserName=="admin"&&login.Password=="admin")
+       {
+       
+         localStorage.setItem("flag","true");
+       }
+       else{
+         localStorage.setItem("flag","false");
+       }
+
        this.loginService.login(login.UserName,login.Password).subscribe
        (data =>
         {alert("Logined Succesfully")
@@ -50,7 +73,7 @@ export class LoginnComponent implements OnInit {
         });
  
 
-      // this.router.navigate(['/Home']);
+       this.router.navigate(['/home']);
   }
 
 }
