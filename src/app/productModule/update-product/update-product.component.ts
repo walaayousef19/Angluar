@@ -121,7 +121,7 @@ productId:number;
       }
     );
 
-  });
+  }); 
   }
 
   UpdateProduct() {

@@ -6,7 +6,7 @@ import { Wishlist } from 'src/app/Classes/WishList';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class wishlistService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:2415/api/Wishlist';
@@ -15,6 +15,10 @@ export class CategoryService {
     const body=JSON.stringify(wishlist);
  
     return this.http.post<Wishlist>(this.url, body,{headers:headers}) 
+}
+addProductToWishlist(id:number): Observable<number> {
+  const headers = { 'content-type': 'application/json'}  
+  return this.http.post<number>(this.url+'/AddToWishlist', id,{headers:headers}) 
 }
     
     returnAllWishlists():Observable<Wishlist[]>

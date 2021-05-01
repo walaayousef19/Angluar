@@ -12,7 +12,7 @@ export class LoginService {
 
 
 login(username: string, password: string): Observable<any> {
-  alert('hh');
+  //alert('hh');
 var data = "grant_type=password&username=" +username + "&password=" + password;
 return this.http.post('http://localhost:2415/login',data).pipe(catchError((err)=>
 {
@@ -20,6 +20,7 @@ return this.http.post('http://localhost:2415/login',data).pipe(catchError((err)=
   return throwError(err.message ||"Internal Server error contact site adminstarator");
 }));  
 }
+
   Login(data:any)
   {
 alert(data.UserName);

@@ -28,13 +28,27 @@
                 </td>
 
             </tr>
-
-
-    </tbody>
-
-</table>
-
-</div>
-
-
-
+      
+        <tbody>
+    
+                <tr *ngFor="let product of productList">
+                    <td>{{product.Name}}</td>
+    
+                    <td><img src="assets/images/product.image" width="80" height="80"></td>
+                    <td>{{product.Price}}$</td>
+                    <td id="quantity-product.ID">{{product.Quantity}}</td>
+                    <td>{{product.Description}}</td>
+    
+                    <td>
+                        <a href="" class="btn btn-success" [routerLink]="['/Product/edit/', product.ID]">Update </a>
+                        <button class="btn btn-danger deleteBtn" data-proID="product.ID" (click)="deleteProduct(product.ID)" data->Delete</button>
+                    </td>
+    
+                </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+    </div>

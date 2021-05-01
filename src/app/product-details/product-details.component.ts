@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { cartService } from 'src/Services/Cart.service';
 import { ProductService } from 'src/Services/product.service';
+import { wishlistService } from 'src/Services/wishList.service';
+import { Cart } from '../Classes/Cart';
 import { Product } from '../Classes/product';
+import { ProductCart } from '../Classes/ProductCart';
+import { ProductWishlist } from '../Classes/ProductWishlist';
+import { Wishlist } from '../Classes/WishList';
 
 @Component({
   selector: 'app-product-details',
@@ -11,8 +17,12 @@ import { Product } from '../Classes/product';
 export class ProductDetailsComponent implements OnInit {
   errorMsg: any;
   product:Product;
+  productCart:ProductCart[];
+  wishList:Wishlist;
+  productWishList:ProductWishlist[];
+  cart:Cart;
 
-  constructor(private productService:ProductService, private route: ActivatedRoute ,private router: Router) { }
+  constructor(private productService:ProductService, private route: ActivatedRoute ,private wishListService:wishlistService,private cartService:cartService) { }
  prodId:number;
   ngOnInit(): void {
        
@@ -32,6 +42,34 @@ export class ProductDetailsComponent implements OnInit {
          );
      
        });
+  }
+  addToWishList(){
+  this.wishListService.addProductToWishlist(this.prodId).subscribe(
+    (res)=>
+    {
+      //alert(res);
+      alert("Added Successfuly");
+    },
+
+    (errorResponse)=>
+    {
+     this.errorMsg=errorResponse; 
+     alert("falied" +this.errorMsg);    
+    })
+  }
+  addToCart(){
+    this.cartService.addProductToCart(this.prodId).subscribe(
+      (res)=>
+      {
+        alert(res);
+        alert("Added Successfuly");
+      },
+  
+      (errorResponse)=>
+      {
+       this.errorMsg=errorResponse; 
+       alert("falied" +this.errorMsg);    
+      })
   }
 
 }

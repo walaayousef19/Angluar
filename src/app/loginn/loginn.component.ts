@@ -16,8 +16,13 @@ import { MserviceService } from 'src/Services/mservice.service';
   styleUrls: ['./loginn.component.scss']
 })
 export class LoginnComponent implements OnInit {
+<<<<<<< HEAD
 
   constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router,private s:MserviceService) { }
+=======
+flag:boolean=false;
+  constructor(private loginService:LoginService,private fb:FormBuilder,private router:Router) { }
+>>>>>>> 9fdff183e4ec1b7565bb47d984d5f29c5044141f
 
   ngOnInit(): void {
   }
@@ -65,15 +70,25 @@ export class LoginnComponent implements OnInit {
 
        this.loginService.login(login.UserName,login.Password).subscribe
        (data =>
-        {alert("Logined Succesfully")
-      alert(data)},Error => {alert("Login Failed")
-     //  this.dataSaved = true;  
-  //  this.massage = 'Record saved Successfully';  
+        {
+          alert("Logined Succesfully");
+       if(login.UserName=="admin" && login.Password=="admin"){
+           this.flag=true;
+       }
+    },
+      
+      Error => 
+      {
+        alert("Login Failed")
   
         });
  
 
+<<<<<<< HEAD
        this.router.navigate(['/home']);
+=======
+      // this.router.navigate(['/home']);
+>>>>>>> 9fdff183e4ec1b7565bb47d984d5f29c5044141f
   }
 
 }

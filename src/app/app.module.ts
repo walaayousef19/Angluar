@@ -19,6 +19,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HomeComponent } from './home/home.component';
 import { LoginnComponent } from './loginn/loginn.component';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -39,7 +41,9 @@ import { LoginnComponent } from './loginn/loginn.component';
     CartComponent,
     ProductDetailsComponent,
     HomeComponent,
-    LoginnComponent
+    LoginnComponent,
+    WishListComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

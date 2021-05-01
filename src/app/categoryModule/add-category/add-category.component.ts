@@ -26,6 +26,9 @@ export class AddCategoryComponent implements OnInit {
    this.getCategory();
  
   }
+  get name(){
+    return this.addCategoryForm.get('name')
+  }
   getCategory(){
     this.categoryService.returnAllCategory().subscribe((Data)=>{
       this.categoryList=Data;
